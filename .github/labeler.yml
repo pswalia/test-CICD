@@ -1,0 +1,39 @@
+charts:
+- charts/**/*
+- chartgardener.yaml
+- chartgardener.yml
+ci/cd:
+- .github/**/*
+deploy:
+- deploy/**/*
+docker:
+- Dockerfile
+docs:
+- '**/README.md'
+garden:
+- charts/**/garden.yaml
+- charts/**/garden.yml
+- '*garden.yml'
+- '*garden.yaml'
+- chartgardener.yaml
+- chartgardener.yml
+go:
+- '*.go'
+- go.mod
+- go.sum
+java:
+- '**/*.java'
+- '**/*.gradle'
+- gradle*
+- gradle/**/*
+- mvnw*
+- '**/pom.xml'
+python:
+- '**/*.py'
+- pyproject.toml
+- requirements*.txt
+- .coveragerc
+restapi:
+- api/**/*
+- oas_*.yaml
+- oas_*.yml

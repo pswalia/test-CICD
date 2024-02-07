@@ -1,0 +1,32 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: hello-world-go
+spec:
+  releaseName: hello-world-go
+  chart:
+    spec:
+      chart: hello-world-go
+      sourceRef:
+        kind: HelmRepository
+        name: uniphore-oci-charts
+        namespace: flux-system
+      version: "0.1.0-vc82acb8e"
+  interval: 5m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  values:
+    replicaCount: 3
+    image:
+      id: "registry.uniphore.com/uniphore/hello-world-go:v-666eea49f1"
+    ingress:
+      hostName: api
+      domainName: ${INGRESS_DOMAIN_NAME}
+      certName: ${CERT_NAME}
+    datadog:
+      env: ""
+    oidc:
+      issuer: ""
+      audience: api.uniphore.com

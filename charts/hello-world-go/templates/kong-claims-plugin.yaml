@@ -1,0 +1,7 @@
+{{- if ne .Values.provider "local-kubernetes" }}
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: hello-world-go-claims
+plugin: kong-plugin-jwt-claims-headers
+{{- end }}
